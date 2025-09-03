@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114-115年度智慧客服平台專案工作計畫</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide {
+            display: none;
+            min-height: 100vh;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            border: 1px solid #e2e8f0;
+            background-color: white;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        .sidebar {
+            transition: transform 0.3s ease;
+        }
+        .sidebar-hidden {
+            transform: translateX(-100%);
+        }
+        .header {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: #0056b3;
+            font-weight: 700;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .pill {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #004494;
+        }
+        .flow-arrow {
+            position: relative;
+            margin: 1rem 0;
+            width: 100%;
+            text-align: center;
+        }
+        .flow-arrow::after {
+            content: '▼';
+            font-size: 2rem;
+            color: #90cdf4;
+        }
+        .tab-button {
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab-button.active {
+            border-color: #0056b3;
+            color: #0056b3;
+            font-weight: 700;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="flex">
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="sidebar bg-gray-800 text-white w-64 min-h-screen p-4 fixed lg:relative z-20">
+        <div class="flex items-center mb-6">
+            <svg class="h-8 w-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            <h2 class="text-xl font-bold">簡報大綱</h2>
+        </div>
+        <nav>
+            <ul>
+                <li class="mb-2"><a href="#" onclick="goToSlide(0)" class="nav-link block p-2 rounded hover:bg-gray-700">封面</a></li>
+                <li class="mb-2"><a href="#" onclick="goToSlide(1)" class="nav-link block p-2 rounded hover:bg-gray-700">1. 計畫目標</a></li>
+                <li class="mb-2"><a href="#" onclick="goToSlide(5)" class="nav-link block p-2 rounded hover:bg-gray-700">2. 工作內容</a></li>
+                <li class="mb-2"><a href="#" onclick="goToSlide(11)" class="nav-link block p-2 rounded hover:bg-gray-700">3. 方案說明</a></li>
+                <li class="mb-2"><a href="#" onclick="goToSlide(14)" class="nav-link block p-2 rounded hover:bg-gray-700">4. 預算與期程</a></li>
+                <li class="mb-2"><a href="#" onclick="goToSlide(16)" class="nav-link block p-2 rounded hover:bg-gray-700">5. 附錄-工項規劃</a></li>
+                <li class="mb-2"><a href="#" onclick="goToSlide(18)" class="nav-link block p-2 rounded hover:bg-gray-700">結尾</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="flex-1">
+        <!-- Main Content -->
+        <main id="presentation-container" class="w-full">
+
+            <!-- Slide 1: Title -->
+            <section class="slide flex-col justify-center items-center text-center bg-blue-50">
+                <div class="w-full max-w-4xl">
+                    <img src="https://www.moenv.gov.tw/Images/logo.png" alt="環境部 Logo" class="h-20 mx-auto mb-8">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">114-115年度智慧客服平台</h1>
+                    <h2 class="text-3xl md:text-4xl font-semibold text-gray-700">專案工作計畫工項報告</h2>
+                    <p class="text-xl text-gray-600 mt-8">114年6月30日</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Project Goals 1 -->
+            <section class="slide flex-col justify-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">01 計畫目標 - 提升服務效能</h2>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">核心目標</h3>
+                            <p class="text-gray-700">透過 AI 應用服務，更快速、準確地回應和處理民眾需求，提供 <span class="font-bold text-blue-600">7x24小時</span> 持續諮詢及分流服務，提升為民服務品質。</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">主要任務</h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>導入網頁式文字生成智慧客服。</li>
+                                <li>建立統一管理平台系統。</li>
+                                <li>客製化功能開發與維護增修。</li>
+                                <li>提供明確途徑轉接至真人客服。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 card">
+                         <h3 class="text-xl font-bold text-blue-700 mb-4">知識庫建置</h3>
+                         <p class="text-gray-700">本案將進行各單位知識庫盤點、建置與訓練，並將QA問答進行標準化與正規化，作為智慧客服回應的基礎。</p>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- Slide 3: Before vs Future -->
+            <section class="slide flex-col justify-center items-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">計畫目標 - 服務流程革新</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                        <div class="card border-red-200 bg-red-50">
+                            <h3 class="text-2xl font-bold text-red-700 mb-4 text-center">以前 ☹</h3>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex items-center"><span class="text-red-500 mr-2">●</span><span>業務查找、費力耗時</span></li>
+                                <li class="flex items-center"><span class="text-red-500 mr-2">●</span><span>需等候上班時間電話諮詢</span></li>
+                                <li class="flex items-center"><span class="text-red-500 mr-2">●</span><span>客服人力有限，尖峰時段雍塞</span></li>
+                            </ul>
+                        </div>
+                        <div class="card border-green-200 bg-green-50">
+                            <h3 class="text-2xl font-bold text-green-700 mb-4 text-center">未來 😊</h3>
+                             <ul class="space-y-4 text-gray-700">
+                                <li class="flex items-center"><span class="text-green-500 mr-2">●</span><span>智慧客服24小時即時回應</span></li>
+                                <li class="flex items-center"><span class="text-green-500 mr-2">●</span><span>自動理解需求，引導查詢</span></li>
+                                <li class="flex items-center"><span class="text-green-500 mr-2">●</span><span>有效分流，無縫轉接真人客服</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center text-gray-600">
+                        <p>民眾提問 → <span class="font-bold text-blue-600">AI意圖分析 & 知識庫檢索</span> → 提供解答/網頁引導 → (若無法解決) → 提供專線轉接資訊</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Overall Architecture -->
+            <section class="slide flex-col justify-center items-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">計畫目標 - 整體規劃藍圖</h2>
+                    <div class="card mt-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <!-- Channels -->
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-blue-800">服務渠道</h4>
+                                <div class="space-y-2">
+                                    <div class="p-3 bg-blue-100 rounded-lg">網頁渠道</div>
+                                    <div class="p-3 bg-blue-100 rounded-lg">社群渠道 (LINE/FB)</div>
+                                    <div class="p-3 bg-blue-100 rounded-lg">電話渠道</div>
+                                </div>
+                            </div>
+                            <!-- Core System -->
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-green-800">核心智慧客服系統</h4>
+                                <div class="space-y-2">
+                                    <div class="p-3 bg-green-100 rounded-lg">文字客服機器人</div>
+                                    <div class="p-3 bg-green-100 rounded-lg">IVR語音導航機器人</div>
+                                    <div class="p-3 bg-green-100 rounded-lg">真人值機系統</div>
+                                    <div class="p-3 bg-green-100 rounded-lg">機器人後台管理</div>
+                                </div>
+                            </div>
+                            <!-- Backend -->
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-purple-800">後端支援與AI</h4>
+                                <div class="space-y-2">
+                                    <div class="p-3 bg-purple-100 rounded-lg">知識庫編修</div>
+                                    <div class="p-3 bg-purple-100 rounded-lg">AI 訓練師</div>
+                                    <div class="p-3 bg-purple-100 rounded-lg">語音辨識/合成</div>
+                                    <div class="p-3 bg-purple-100 rounded-lg">內外部系統介接</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 5: Phased Plan -->
+            <section class="slide flex-col justify-center items-center">
+                <div class="w-full max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold header">計畫目標 - 分階段實施</h2>
+                    <div class="mt-8 flex flex-col md:flex-row justify-center items-stretch gap-8">
+                        <div class="card flex-1">
+                            <h3 class="text-xl font-bold text-white bg-blue-600 p-3 rounded-t-lg -m-6 mb-4 text-center">本期計畫 (第一階段)</h3>
+                            <div class="pt-4">
+                                <p class="text-lg font-semibold mb-2">文字智慧客服 (含語音輸入)</p>
+                                <p class="text-gray-600">建立以文字問答為主的智慧客服機器人，支援語音轉文字輸入，作為服務第一線，處理民眾常見問題。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center text-4xl text-gray-400 font-bold mx-4">→</div>
+                        <div class="card flex-1 bg-gray-100 border-gray-300">
+                            <h3 class="text-xl font-bold text-white bg-gray-500 p-3 rounded-t-lg -m-6 mb-4 text-center">未來規劃 (第二階段)</h3>
+                            <div class="pt-4">
+                                <p class="text-lg font-semibold mb-2">擴增語音服務</p>
+                                <p class="text-gray-600">導入專線語音機器人(IVR)、外撥問券調查等功能，提供更多元的自動化服務管道。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Work Content - QA Flow -->
+            <section class="slide flex-col justify-center items-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">02 工作內容 - 智慧文字客服QA執行流程</h2>
+                    <div class="card mt-8 text-center">
+                        <div class="pill bg-blue-100 text-blue-800 mb-4">民眾/同仁提問</div>
+                        <div class="flow-arrow"></div>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="card bg-gray-50">意圖識別</div>
+                            <div class="card bg-gray-50">知識點檢索</div>
+                            <div class="card bg-gray-50">多意圖處理</div>
+                            <div class="card bg-gray-50">檢索增強生成(RAG)</div>
+                        </div>
+                        <div class="flow-arrow"></div>
+                        <div class="card bg-green-50">
+                            <p class="font-semibold text-green-800">辨識型AI + 生成式AI</p>
+                            <p class="text-sm text-gray-600">高信心度問題直接回答；多意圖問題由生成式AI揉合答案；未知問題透過RAG技術搜尋指定文件。</p>
+                        </div>
+                        <div class="flow-arrow"></div>
+                        <div class="pill bg-green-100 text-green-800">提供多知識點回答文字與文檔出處連結</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: Work Content - Knowledge Base 1 -->
+            <section class="slide flex-col justify-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">工作內容 - 知識庫建立與優化</h2>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">知識庫建立</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>建置方法：</strong> 匯入各單位FAQ、爬取網頁資料、協助新增資料。</li>
+                                <li><strong>內容設計：</strong> 針對專有名詞、用戶用詞進行語意分析，設計情境式、多輪式對話。</li>
+                                <li><strong>回應風格：</strong> 透過生成式AI設定親切、務實等特定語氣。</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">數量與正確率目標</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>知識點數量：</strong> 上線時至少 1,000 點，全期至少 2,500 點。</li>
+                                <li><strong>多輪式對話：</strong> 上線時至少 10 組，全期至少 30 組。</li>
+                                <li><strong>正確率要求：</strong>
+                                    <ul class="list-circle list-inside ml-4">
+                                        <li>上線時：<span class="font-bold">> 80%</span></li>
+                                        <li>上線後三個月：<span class="font-bold">> 85%</span></li>
+                                        <li>後續維護：<span class="font-bold">> 95%</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 8: Work Content - Knowledge Base 2 -->
+            <section class="slide flex-col justify-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">工作內容 - 知識庫維護與測試</h2>
+                     <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">維護與管理</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>權限劃分：</strong> 單位承辦人具編輯權限，單位主管具審核權限。</li>
+                                <li><strong>更新機制：</strong> 規劃知識庫更新SOP，定期審核、更新及擴充。</li>
+                                <li><strong>定期檢討：</strong> 定期召開會議，檢討FAQ正確率、覆蓋率等指標。</li>
+                                <li><strong>內網知識庫：</strong> 區分內外部使用者資料，確保資訊安全。</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                             <h3 class="text-xl font-bold text-blue-700 mb-4">知識庫測試方式</h3>
+                             <p class="mb-4">測試需各單位協助判斷AI回答狀況，並將其結果回饋於測試表單中，流程如下：</p>
+                             <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                <li>建立初步FAQ</li>
+                                <li>設計測試題 (Prompt)</li>
+                                <li>各單位進行提問測試</li>
+                                <li>收集測試回饋</li>
+                                <li>錯誤分析與模型微調</li>
+                                <li>完成調校後上線</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 9: Work Content - SLI/SLO -->
+            <section class="slide flex-col justify-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">工作內容 - 服務水準協議 (SLA)</h2>
+                     <div class="card mt-8">
+                        <h3 class="text-xl font-bold text-blue-700 mb-4">服務水準指標 (SLI)</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill bg-gray-200 text-gray-800">系統可用性</span>
+                            <span class="pill bg-gray-200 text-gray-800">反應時間</span>
+                            <span class="pill bg-gray-200 text-gray-800">故障次數</span>
+                            <span class="pill bg-gray-200 text-gray-800">負載人數</span>
+                            <span class="pill bg-gray-200 text-gray-800">正確率</span>
+                            <span class="pill bg-gray-200 text-gray-800">覆蓋率</span>
+                            <span class="pill bg-gray-200 text-gray-800">問題解決率</span>
+                            <span class="pill bg-gray-200 text-gray-800">真人客服轉接率</span>
+                        </div>
+                     </div>
+                     <div class="card mt-8">
+                         <h3 class="text-xl font-bold text-blue-700 mb-4">服務水準目標 (SLO)</h3>
+                         <ul class="list-disc list-inside space-y-3">
+                             <li><strong>系統可用性：</strong> 故障發生後 <span class="font-bold">8 小時內</span> 提出解決方案或替代方案。</li>
+                             <li><strong>反應時間：</strong> 平均回應時間在 <span class="font-bold">3 秒內</span> (比率達 95%以上)。</li>
+                             <li><strong>故障次數：</strong> 每月系統無法作業時間累計不得超過 <span class="font-bold">24 小時</span>，且每月不得超過 1 次。</li>
+                             <li><strong>負載能力：</strong> 系統須同時容許至少 <span class="font-bold">200 人</span>上線。</li>
+                         </ul>
+                     </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Work Content - Management Platform -->
+            <section class="slide flex-col justify-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">工作內容 - 統一管理後台</h2>
+                    <p class="mt-4 text-gray-600">建立功能完善的統一管理後台，方便各單位管理者進行知識庫維護、模型訓練與成效分析。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                        <div class="card text-center bg-blue-50">知識點編輯維護</div>
+                        <div class="card text-center bg-blue-50">多輪對話編輯</div>
+                        <div class="card text-center bg-blue-50">資料批次匯入/匯出</div>
+                        <div class="card text-center bg-blue-50">訓練及優化介面</div>
+                        <div class="card text-center bg-green-50">各類詞庫編輯</div>
+                        <div class="card text-center bg-green-50">權限管理功能</div>
+                        <div class="card text-center bg-green-50">問答紀錄查詢匯出</div>
+                        <div class="card text-center bg-green-50">視覺化分析圖表</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Architecture - Diagram -->
+            <section class="slide flex-col justify-center items-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">03 方案說明 - 建議硬體架構</h2>
+                    <div class="card mt-8 p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Left: On-premise -->
+                            <div class="border-r-0 md:border-r-2 border-dashed pr-8">
+                                <h3 class="text-xl font-bold text-center mb-4">本部機房 (地端)</h3>
+                                <div class="space-y-4">
+                                    <div class="card bg-gray-100">
+                                        <p class="font-bold">GPU 實體訓練機</p>
+                                        <p class="text-sm text-gray-600">CPU: 16+ Core, RAM: 64G+, SSD: 2T+, GPU: L40S+</p>
+                                        <p class="pill bg-yellow-200 text-yellow-800 mt-2">負責NLP模型訓練、RAG</p>
+                                    </div>
+                                    <div class="card bg-gray-100">
+                                        <p class="font-bold">VM 正式機叢集</p>
+                                        <p class="text-sm text-gray-600">Web/AP Server *2, DB Server *2, NLP Server *1</p>
+                                        <p class="pill bg-green-200 text-green-800 mt-2">正式服務環境</p>
+                                    </div>
+                                     <div class="card bg-gray-100">
+                                        <p class="font-bold">VM 測試機</p>
+                                        <p class="text-sm text-gray-600">Web/AP/DB Server *1</p>
+                                        <p class="pill bg-blue-200 text-blue-800 mt-2">開發與測試環境</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Right: Cloud -->
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold mb-4">雲端服務</h3>
+                                <div class="card bg-blue-50 border-blue-200 h-full flex flex-col justify-center">
+                                    <p class="font-bold text-2xl text-blue-800">LLM (生成式AI)</p>
+                                    <p class="mt-2 text-gray-600">採用 Microsoft Azure OpenAI 服務</p>
+                                    <div class="mt-4">
+                                        <p class="pill bg-purple-200 text-purple-800">模型: GPT-4o 或以上</p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="pill bg-indigo-200 text-indigo-800">嵌入模型: Ada</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            
+            <!-- Slide 12: Architecture - Options Comparison -->
+            <section class="slide flex-col justify-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">方案說明 - 方案差異比較</h2>
+                    <div class="mt-4">
+                        <div class="flex border-b">
+                            <button class="tab-button active" onclick="openTab(event, 'tab1')">方案一 (混合雲)</button>
+                            <button class="tab-button" onclick="openTab(event, 'tab2')">方案二 (混合雲-高效能)</button>
+                            <button class="tab-button" onclick="openTab(event, 'tab3')">方案三 (純雲端)</button>
+                        </div>
+                        <div id="tab1" class="tab-content active p-6 card rounded-t-none">
+                            <h3 class="font-bold text-xl mb-2">方案一：混合雲架構 (建議方案)</h3>
+                            <p class="text-gray-600 mb-4">兼顧資安、效能與成本效益，核心系統與訓練機落地，彈性運用雲端LLM。</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>雲端LLM服務:</strong> AOAI / AWS / Google Gemini</li>
+                                <li><strong>主系統:</strong> 本部VM (Web/AP/DB 各*2)</li>
+                                <li><strong>NLP 模型推論機:</strong> 本部VM</li>
+                                <li><strong>NLP 模型訓練機:</strong> <span class="font-bold text-red-600">本部實體機 (GPU: L40S)</span></li>
+                            </ul>
+                        </div>
+                        <div id="tab2" class="tab-content p-6 card rounded-t-none">
+                            <h3 class="font-bold text-xl mb-2">方案二：混合雲 - 高效能推論</h3>
+                             <p class="text-gray-600 mb-4">將推論機改為實體GPU主機，提升即時回應效能，成本較高。</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>雲端LLM服務:</strong> AOAI / AWS / Google Gemini</li>
+                                <li><strong>主系統:</strong> 本部VM (Web/AP/DB 各*2)</li>
+                                <li><strong>NLP 模型推論機:</strong> <span class="font-bold text-red-600">本部實體機 (GPU: RTX6000/L40S)</span></li>
+                                <li><strong>NLP 模型訓練機:</strong> 本部實體機 (GPU: L40S)</li>
+                            </ul>
+                        </div>
+                        <div id="tab3" class="tab-content p-6 card rounded-t-none">
+                            <h3 class="font-bold text-xl mb-2">方案三：純雲端架構</h3>
+                            <p class="text-gray-600 mb-4">所有系統皆部署於微軟雲端，建置快速但長期營運成本最高，且有機敏資料上雲考量。</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>雲端LLM服務:</strong> AOAI</li>
+                                <li><strong>主系統:</strong> 微軟雲端方案</li>
+                                <li><strong>NLP 模型推論機:</strong> 微軟雲端方案</li>
+                                <li><strong>NLP 模型訓練機:</strong> 微軟雲端方案</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 13: LLM Choice -->
+            <section class="slide flex-col justify-center items-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">方案說明 - 大型語言模型(LLM)選擇</h2>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                             <h3 class="font-bold text-xl mb-2">OpenAI GPT-4</h3>
+                             <p class="text-gray-600 mb-4">透過 Azure OpenAI (AOAI) 服務</p>
+                             <ul class="list-disc list-inside space-y-2">
+                                 <li><strong>優勢：</strong> 強大的自然語言生成能力、深度微調能力，可提供更自然的交互體驗。</li>
+                                 <li><strong>資安：</strong> AOAI提供企業級防護機制，包含資料加密、身份驗證與隱私保護，使用者數據<span class="font-bold">不會</span>被用於模型訓練。</li>
+                             </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="font-bold text-xl mb-2">Google Gemini 2.5 Pro</h3>
+                             <p class="text-gray-600 mb-4">透過 Google Cloud 服務</p>
+                             <ul class="list-disc list-inside space-y-2">
+                                 <li><strong>優勢：</strong> 整合多模態資料能力強，與Google生態系統整合性佳，利於進行深入資料分析。</li>
+                                 <li><strong>資安：</strong> 利用Google Cloud IAM提供精細權限控制，所有傳輸與儲存的數據均為加密狀態。</li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 14: Budget & Timeline -->
+            <section class="slide flex-col justify-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">04 預算與期程規劃</h2>
+                     <div class="card mt-8">
+                         <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-700">全案經費</h3>
+                            <span class="text-2xl font-bold text-red-600">新臺幣 1,180 萬元</span>
+                         </div>
+                         <p class="text-gray-600">執行期限：決標日至115年11月30日</p>
+                         <p class="text-gray-600">履約期限：決標日至115年12月31日</p>
+                    </div>
+                    <div class="card mt-8">
+                        <h3 class="text-xl font-bold text-blue-700 mb-4">各期程主要工作與經費</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="p-3">期程</th>
+                                        <th class="p-3">時間</th>
+                                        <th class="p-3">經費預估</th>
+                                        <th class="p-3">主要工作說明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-medium">第1期</td>
+                                        <td class="p-3">114/9-114/11</td>
+                                        <td class="p-3">212萬元</td>
+                                        <td class="p-3">需求訪談、知識盤點、系統設計</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-medium">第2期</td>
+                                        <td class="p-3">114/12-115/2</td>
+                                        <td class="p-3">契約餘額 40%</td>
+                                        <td class="p-3">程式開發、系統平台與知識庫建置</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-medium">第3期</td>
+                                        <td class="p-3">115/3-115/5</td>
+                                        <td class="p-3">契約餘額 30%</td>
+                                        <td class="p-3">測試作業、SLA指標調校、試營運</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">第4期</td>
+                                        <td class="p-3">115/6-115/12</td>
+                                        <td class="p-3">契約餘額 30%</td>
+                                        <td class="p-3">正式上線、知識擴增、系統維運</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Slide 15: Budget Source -->
+            <section class="slide flex-col justify-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">預算與期程規劃 - 經費來源</h2>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">114年度預算 (第1期)</h3>
+                            <p class="text-2xl font-semibold">212 萬元</p>
+                            <p class="text-gray-600 mt-2">由114年水污基金「水汙染防治及水體水質改善」項下「購置無形資產」支付。</p>
+                        </div>
+                        <div class="card">
+                             <h3 class="text-xl font-bold text-blue-700 mb-4">115年度預算 (第2-4期)</h3>
+                             <p class="text-2xl font-semibold">968 萬元</p>
+                             <p class="text-gray-600 mt-2">由本部及所屬共通資訊經費分攤支應。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 16: Appendix - Requirements -->
+            <section class="slide flex-col justify-center">
+                 <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">05 附錄 - 工項細部規劃</h2>
+                    <div class="card mt-8">
+                        <h3 class="text-xl font-bold text-blue-700 mb-4">基本功能要求</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                           <p class="pill bg-gray-100">語意分析、多意圖、多輪式對話</p>
+                           <p class="pill bg-gray-100">RAG及向量搜尋</p>
+                           <p class="pill bg-gray-100">NLP落地主機(訓練機)</p>
+                           <p class="pill bg-gray-100">雲端LLM介接</p>
+                           <p class="pill bg-gray-100">前後台介面與SSO整合</p>
+                           <p class="pill bg-gray-100">網站爬蟲</p>
+                           <p class="pill bg-gray-100">多渠道介接(Web/LINE/FB)</p>
+                           <p class="pill bg-gray-100">知識庫版本控管</p>
+                           <p class="pill bg-gray-100">內外網知識庫區分</p>
+                           <p class="pill bg-gray-100">語音輸入輸出</p>
+                           <p class="pill bg-gray-100">響應式/無障礙設計</p>
+                           <p class="pill bg-gray-100">真人值機介面</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 17: Appendix - Security -->
+            <section class="slide flex-col justify-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">附錄 - 資通安全要求</h2>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">法規遵循與檢測</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>遵循「資通安全管理法」及相關規範。</li>
+                                <li>每半年執行 1 次弱點掃描。</li>
+                                <li>每年執行 1 次滲透測試。</li>
+                                <li>提供「系統安全檢測及修補報告」。</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                             <h3 class="text-xl font-bold text-blue-700 mb-4">個資與AI安全</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>PII 保護：</strong> 導入個人可識別資訊(PII)自動偵測與遮罩技術。</li>
+                                <li><strong>AI安全：</strong> 需考量OWASP Top 10 for LLM，防止資料洩漏及輸出失真/誤導。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 18: Appendix - LLM Security -->
+            <section class="slide flex-col justify-center">
+                <div class="w-full max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold header">附錄 - 雲端LLM防護機制</h2>
+                    <p class="text-gray-600 mt-4">各大雲端平台皆提供完善的企業級安全防護機制，以 Azure OpenAI (AOAI) 為例：</p>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div class="card">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">資料加密機制</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>靜態數據加密：</strong> 儲存於 Azure 的所有數據均使用 AES-256 加密。</li>
+                                <li><strong>傳輸數據加密：</strong> 使用 TLS 1.2/1.3 加密協議保護傳輸中的數據。</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                             <h3 class="text-xl font-bold text-blue-700 mb-4">身份驗證與存取控制</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Azure AD 整合：</strong> 支援MFA多因素驗證與RBAC角色型存取控制。</li>
+                                <li><strong>條件性存取：</strong> 可依據IP、設備等條件限制存取。</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="card mt-8 bg-green-50 border-green-200">
+                         <h3 class="text-xl font-bold text-green-800 mb-2 text-center">使用者數據隱私與保護</h3>
+                         <p class="text-center text-gray-700">Microsoft 確保 AOAI 所處理的應用數據和查詢 <span class="font-bold">不會被用於後續的模型訓練</span>，確保業務數據的隱私性。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slide 19: End -->
+            <section class="slide flex-col justify-center items-center text-center bg-blue-50">
+                <div class="w-full max-w-4xl">
+                    <h2 class="text-5xl font-bold text-gray-800 mb-8">敬請指教</h2>
+                    <p class="text-3xl text-gray-600">THANK YOU</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer with navigation -->
+        <footer class="fixed bottom-0 left-0 lg:left-64 right-0 bg-white p-2 border-t shadow-md z-10">
+            <div class="flex justify-between items-center max-w-7xl mx-auto px-4">
+                 <button id="sidebar-toggle-mobile" class="lg:hidden p-2 rounded-md hover:bg-gray-200">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <button onclick="prevSlide()" class="btn-primary px-4 py-2 rounded-md">上一頁</button>
+                <div id="page-counter" class="text-gray-600 font-medium"></div>
+                <button onclick="nextSlide()" class="btn-primary px-4 py-2 rounded-md">下一頁</button>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageCounter = document.getElementById('page-counter');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle-mobile');
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            updatePageCounter();
+            updateNavLinks();
+        }
+
+        function updatePageCounter() {
+            pageCounter.textContent = `第 ${currentSlide + 1} / ${totalSlides} 頁`;
+        }
+        
+        function updateNavLinks() {
+            // This is a simple implementation. A more robust one might use Intersection Observer.
+            navLinks.forEach(link => link.classList.remove('bg-gray-700'));
+            // This logic is simplified; it highlights the section start.
+            if (currentSlide >= 18) { navLinks[6].classList.add('bg-gray-700'); }
+            else if (currentSlide >= 16) { navLinks[5].classList.add('bg-gray-700'); }
+            else if (currentSlide >= 14) { navLinks[4].classList.add('bg-gray-700'); }
+            else if (currentSlide >= 11) { navLinks[3].classList.add('bg-gray-700'); }
+            else if (currentSlide >= 5) { navLinks[2].classList.add('bg-gray-700'); }
+            else if (currentSlide >= 1) { navLinks[1].classList.add('bg-gray-700'); }
+            else { navLinks[0].classList.add('bg-gray-700'); }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+            if (window.innerWidth < 1024) { // on mobile, hide sidebar after click
+                 sidebar.classList.add('sidebar-hidden');
+            }
+        }
+        
+        // Tabs logic
+        function openTab(event, tabId) {
+            const tabContents = event.currentTarget.parentElement.nextElementSibling.parentElement.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            const tabButtons = event.currentTarget.parentElement.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-hidden');
+        });
+
+        // Initialize first slide
+        document.addEventListener('DOMContentLoaded', () => {
+             if (window.innerWidth < 1024) {
+                sidebar.classList.add('sidebar-hidden');
+             }
+            showSlide(0);
+        });
+
+    </script>
+</body>
+</html>
